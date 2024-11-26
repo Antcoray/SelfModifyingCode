@@ -8,7 +8,7 @@ int main() {
   std::string newText = "std::cout << i << '\\n';\n++i;\n// FLAG";
   int n = 0;
   std::cin >> n;
-  std::ifstream sourceFile("Task.cpp");
+  std::ifstream sourceFile("SelfModifyingCode.cpp");
   std::vector<std::string> lines;
   std::string line;
   int lastMatchIndex = -1;
@@ -31,14 +31,15 @@ int main() {
   }
   tempFile.close();
 
-  remove("Task.cpp");
-  rename("temp.cpp", "Task.cpp");
+  remove("SelfModifyingCode.cpp");
+  rename("temp.cpp", "SelfModifyingCode.cpp");
   /////////////////////////////////////////
 
-  // FLAG
+// FLAG
 
   /////////////////////////////////////////
-  system(" clang++ -g Task.cpp -o Task");
-  system("./Task");
+  
+  system(" clang++ -g SelfModifyingCode.cpp -o SelfModifyingCode");
+  system("./SelfModifyingCode");
   return 0;
 }
